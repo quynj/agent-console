@@ -1,6 +1,6 @@
 ---
 name: nano-memory
-description: "Maintain durable local memory for the Agent Console user and project using only the registered file tools and shell search. Use when the agent needs to recall who the user is, user preferences, project history, prior decisions, daily logs, or when it learns durable facts that should survive new sessions."
+description: "Maintain durable local memory for the Quynj Claw user and project using only the registered file tools and shell search. Use when the agent needs to recall who the user is, user preferences, project history, prior decisions, daily logs, or when it learns durable facts that should survive new sessions."
 ---
 
 # Nano Memory
@@ -16,7 +16,7 @@ Core files:
 
 ## Available Tools
 
-Use only tools that are actually registered in this Agent Console runtime:
+Use only tools that are actually registered in this Quynj Claw runtime:
 
 - `list_files` or `list_directory` to inspect directories.
 - `view_text_file` to read file contents, optionally with line ranges.

@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "agent-console-frontend",
+      "name": "quynj-claw-frontend",
       "dependencies": {
         "@vitejs/plugin-vue": "^5.2.4",
         "element-plus": "^2.9.7",

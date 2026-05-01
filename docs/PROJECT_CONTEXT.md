@@ -5,7 +5,7 @@
 Build a custom AgentScope Studio-style Agent session console:
 
 ```text
-Frontend Agent Console
+Frontend Quynj Claw
   -> Spring Boot REST/SSE
     -> AgentScope Java ReActAgent
       -> AutoContextMemory
@@ -52,7 +52,7 @@ These responsibilities should remain inside AgentScope Java.
 
 Route:
 
-- `/agent-console`
+- `/quynj-claw`
 
 Layout:
 
@@ -66,12 +66,12 @@ This repository intentionally contains project-local agent capabilities:
 
 - `.agents/skills/conventional-commit/SKILL.md`
 - `.agents/skills/nano-memory/SKILL.md`
-- `.agents/skills/agent-console-agent/SKILL.md`
+- `.agents/skills/quynj-claw-agent/SKILL.md`
 - `.agents/skills/skills-creator/SKILL.md`
-- `src/main/java/com/github/quynj/agentconsole/tool/CalculatorTools.java`
-- `src/main/java/com/github/quynj/agentconsole/tool/DateTimeTools.java`
-- `src/main/java/com/github/quynj/agentconsole/tool/ListFileTool.java`
-- `src/main/java/com/github/quynj/agentconsole/tool/SystemInfoTools.java`
+- `src/main/java/com/github/quynj/quynjclaw/tool/CalculatorTools.java`
+- `src/main/java/com/github/quynj/quynjclaw/tool/DateTimeTools.java`
+- `src/main/java/com/github/quynj/quynjclaw/tool/ListFileTool.java`
+- `src/main/java/com/github/quynj/quynjclaw/tool/SystemInfoTools.java`
 - AgentScope file tools: `ReadFileTool`, `WriteFileTool`
 - AgentScope AutoContext tool: `ContextOffloadTool` when `AutoContextMemory` is active
 

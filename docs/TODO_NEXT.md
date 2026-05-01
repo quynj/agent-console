@@ -36,7 +36,7 @@ Add a simple frontend smoke test or documented manual QA path for create/send/sw
 
 - Show runtime errors from `runtimeStore.lastError` in the chat view.
 - Improve empty/error/loading states for Summary and Trace tabs.
-- Consider route setup if future navigation grows beyond the single `AgentConsoleView`.
+- Consider route setup if future navigation grows beyond the single `QuynjClawView`.
 - Consider chunk splitting if Vite large chunk warning becomes operationally annoying.
 
 ## Operational TODOs

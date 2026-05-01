@@ -58,7 +58,7 @@ Frontend build warning:
 - AgentScope `Toolkit` registration for project built-in Java tool beans.
 - AgentScope `SkillBox` registration for skills loaded from `.agents/skills`.
 - `AutoContextMemory` creation target in `AgentMemoryFactory`.
-- `agent-console.memory.max-context-tokens` is wired into `AutoContextConfig.maxToken`.
+- `quynj-claw.memory.max-context-tokens` is wired into `AutoContextConfig.maxToken`.
 - `ContextOffloadTool` is registered when `AutoContextMemory` is active.
 - `InMemoryMemory` fallback if `AutoContextMemory` creation fails and fallback is enabled.
 - `DashScopeChatModel`, `OpenAIChatModel`, and `OllamaChatModel` provider branches.
@@ -69,7 +69,7 @@ Frontend build warning:
 
 ## Implemented Frontend Behavior
 
-- Three-column `/agent-console` view.
+- Three-column `/quynj-claw` view.
 - Left session sidebar:
   - list
   - search
@@ -97,7 +97,7 @@ Frontend build warning:
 server:
   port: 8080
 
-agent-console:
+quynj-claw:
   model:
     provider: openai
     name: ${MODEL:qwen3.5:9B-UD-Q4_K_XL}
@@ -127,9 +127,9 @@ Note: the original requested sample used DashScope and `DASHSCOPE_API_KEY`. The 
 - Project-local agent additions are intentional:
   - `.agents/skills/conventional-commit/SKILL.md`
   - `.agents/skills/nano-memory/SKILL.md`
-  - `.agents/skills/agent-console-agent/SKILL.md`
+  - `.agents/skills/quynj-claw-agent/SKILL.md`
   - `.agents/skills/skills-creator/SKILL.md`
-  - `src/main/java/com/github/quynj/agentconsole/tool/*`
+  - `src/main/java/com/github/quynj/quynjclaw/tool/*`
 - Frontend uses Bun as the dependency manager:
   - `frontend/bun.lock` is intentional.
   - `frontend/package-lock.json` deletion is consistent with moving away from npm lockfiles.

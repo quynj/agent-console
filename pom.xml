@@ -9,9 +9,9 @@
         <relativePath/>
     </parent>
     <groupId>com.github.quynj</groupId>
-    <artifactId>agent-console</artifactId>
+    <artifactId>quynj-claw</artifactId>
     <version>1.0.0</version>
-    <name>agent-console</name>
+    <name>quynj-claw</name>
     <properties>
         <java.version>25</java.version>
     </properties>

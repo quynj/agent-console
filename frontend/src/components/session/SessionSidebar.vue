@@ -3,7 +3,7 @@
     <div class="sidebar-top">
       <div>
         <p class="eyebrow">AgentScope</p>
-        <h1>Agent Console</h1>
+        <h1>Quynj Claw</h1>
       </div>
       <el-button :icon="Plus" circle @click="sessionStore.newSession" />
     </div>

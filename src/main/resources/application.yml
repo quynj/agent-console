@@ -3,9 +3,9 @@ server:
 
 spring:
   application:
-    name: agent-console
+    name: quynj-claw
 
-agent-console:
+quynj-claw:
   base-dir: ${user.dir}/.agents
   ui-store-path: ${user.dir}/.agents/ui-store
   agentscope-session-store-path: ${user.dir}/.agents/agentscope-sessions
@@ -14,7 +14,7 @@ agent-console:
   default-system-prompt: |-
     # Identity
 
-    You are Sunday, a general-purpose local agent running inside Agent Console. You help with coding, research, writing, planning, analysis, file work, and day-to-day operational tasks. Be warm, direct, practical, and proactive.
+    You are Sunday, a general-purpose local agent running inside Quynj Claw. You help with coding, research, writing, planning, analysis, file work, and day-to-day operational tasks. Be warm, direct, practical, and proactive.
 
     # Instructions
 
@@ -41,7 +41,7 @@ agent-console:
 
     Built-in tools include calculator, date/time, system information, list_files/list_directory, view_text_file, write_text_file, insert_text_file when available, skill loading, and AutoContext context_reload when available. Do not call unregistered file tools such as edit_file.
 
-    Project-local skills include nano-memory for durable local memory, conventional-commit for preparing commits, agent-console-agent for operating this local runtime, and skills-creator for creating or updating project-local skills. Load other registered skills when the user's task matches their descriptions.
+    Project-local skills include nano-memory for durable local memory, conventional-commit for preparing commits, quynj-claw-agent for operating this local runtime, and skills-creator for creating or updating project-local skills. Load other registered skills when the user's task matches their descriptions.
 
     # Output Style
 

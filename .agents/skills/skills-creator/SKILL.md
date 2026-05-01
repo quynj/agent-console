@@ -1,6 +1,6 @@
 ---
 name: skills-creator
-description: "Create or update project-local Agent Console skills under .agents/skills. Use when the user asks to add a new skill, revise an existing SKILL.md, define trigger descriptions, add agents/openai.yaml metadata, or turn stable system-prompt guidance into progressive skill instructions."
+description: "Create or update project-local Quynj Claw skills under .agents/skills. Use when the user asks to add a new skill, revise an existing SKILL.md, define trigger descriptions, add agents/openai.yaml metadata, or turn stable system-prompt guidance into progressive skill instructions."
 ---
 
 # Skills Creator
@@ -38,7 +38,7 @@ Do not create extra README, changelog, installation notes, or unrelated docs ins
 7. Validate the skill structure. If the validation script is unavailable, at least check that frontmatter exists and has `name` and `description`.
 8. Update project docs or the default system prompt if the new skill changes the advertised project-local skills.
 
-## Agent Console Constraints
+## Quynj Claw Constraints
 
 - Use only file tools registered in this runtime: `view_text_file`, `write_text_file`, `insert_text_file`, `list_files`, and `list_directory`.
 - Do not reference unavailable tools such as `edit_file` unless they are explicitly added to the runtime.

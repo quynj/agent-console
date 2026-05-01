@@ -24,7 +24,7 @@ bun run dev
 Open the Vite URL and use:
 
 ```text
-/agent-console
+/quynj-claw
 ```
 
 ## Build Verification
@@ -55,7 +55,7 @@ src/main/resources/application.yml
 Important keys:
 
 ```yaml
-agent-console:
+quynj-claw:
   base-dir: ${user.dir}/.agents
   ui-store-path: ${user.dir}/.agents/ui-store
   agentscope-session-store-path: ${user.dir}/.agents/agentscope-sessions
@@ -78,29 +78,29 @@ agent-console:
 Provider notes:
 
 - `ollama`: requires local Ollama-compatible server at `base-url`; no API key check.
-- `dashscope`: `AgentFactory` requires non-blank `agent-console.model.api-key`; error is `DASHSCOPE_API_KEY is not configured.`
-- `openai`: `AgentFactory` requires non-blank `agent-console.model.api-key`; error is `OPENAI_API_KEY is not configured.`
+- `dashscope`: `AgentFactory` requires non-blank `quynj-claw.model.api-key`; error is `DASHSCOPE_API_KEY is not configured.`
+- `openai`: `AgentFactory` requires non-blank `quynj-claw.model.api-key`; error is `OPENAI_API_KEY is not configured.`
 
 ## Where AgentScope Is Integrated
 
 JsonSession:
 
-- `src/main/java/com/github/quynj/agentconsole/agentscope/AgentSessionStore.java`
-- Initializes `new JsonSession(path)` using `agent-console.agentscope-session-store-path`.
+- `src/main/java/com/github/quynj/quynjclaw/agentscope/AgentSessionStore.java`
+- Initializes `new JsonSession(path)` using `quynj-claw.agentscope-session-store-path`.
 - Exposes `loadIfExists`, `save`, `exists`, and `delete`.
 - Validates session IDs before touching AgentScope session storage.
 
 AutoContextMemory:
 
-- `src/main/java/com/github/quynj/agentconsole/agentscope/AgentMemoryFactory.java`
+- `src/main/java/com/github/quynj/quynjclaw/agentscope/AgentMemoryFactory.java`
 - Attempts to create `AutoContextMemory` with `AutoContextConfig` and the selected model.
-- Uses `agent-console.memory.max-context-tokens` as `AutoContextConfig.maxToken`.
+- Uses `quynj-claw.memory.max-context-tokens` as `AutoContextConfig.maxToken`.
 - Falls back to `InMemoryMemory` when initialization fails and fallback is enabled.
 - `AgentFactory` registers `ContextOffloadTool` when the created memory is `AutoContextMemory`.
 
 Agent creation:
 
-- `src/main/java/com/github/quynj/agentconsole/agentscope/AgentFactory.java`
+- `src/main/java/com/github/quynj/quynjclaw/agentscope/AgentFactory.java`
 - Creates the model and memory.
 - Registers project Java tools into AgentScope `Toolkit`.
 - Loads `.agents/skills` through AgentScope `FileSystemSkillRepository`.
@@ -109,7 +109,7 @@ Agent creation:
 
 Runtime call:
 
-- `src/main/java/com/github/quynj/agentconsole/application/AgentScopeRuntimeService.java`
+- `src/main/java/com/github/quynj/quynjclaw/application/AgentScopeRuntimeService.java`
 - Calls `loadIfExists` before `agent.call(...)`.
 - Calls `save` after successful completion.
 
@@ -169,7 +169,7 @@ Project-local skills:
 Agent built-in Java tools:
 
 ```text
-src/main/java/com/github/quynj/agentconsole/tool/
+src/main/java/com/github/quynj/quynjclaw/tool/
 ```
 
 ## Known TODOs
@@ -183,8 +183,8 @@ These are intentional parts of the current project direction:
 - Frontend uses Bun for dependency management and scripts.
 - `frontend/bun.lock` is the expected frontend lockfile.
 - `frontend/package-lock.json` has been removed as part of the Bun workflow.
-- `.agents/skills/conventional-commit/SKILL.md`, `.agents/skills/nano-memory/SKILL.md`, `.agents/skills/agent-console-agent/SKILL.md`, and `.agents/skills/skills-creator/SKILL.md` are project-local agent skills.
-- `src/main/java/com/github/quynj/agentconsole/tool/*` contains Agent built-in tool classes.
+- `.agents/skills/conventional-commit/SKILL.md`, `.agents/skills/nano-memory/SKILL.md`, `.agents/skills/quynj-claw-agent/SKILL.md`, and `.agents/skills/skills-creator/SKILL.md` are project-local agent skills.
+- `src/main/java/com/github/quynj/quynjclaw/tool/*` contains Agent built-in tool classes.
 - `.agents/ui-store/` and `.agents/agentscope-sessions/` are runtime state and are ignored by git.
 
 Do not revert these unless the user explicitly asks.

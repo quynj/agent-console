@@ -96,12 +96,12 @@ Rationale:
 Consequences:
 
 - The runtime still supports DashScope, OpenAI-compatible, and Ollama provider branches.
-- The `openai` branch validates that `agent-console.model.api-key` is non-blank, even when the configured default placeholder is `not-needed`.
+- The `openai` branch validates that `quynj-claw.model.api-key` is non-blank, even when the configured default placeholder is `not-needed`.
 - Update docs/config carefully if switching default providers.
 
 ## ADR-008: Runtime State Lives Under Project `.agents`
 
-Decision: local runtime state moved from `${user.home}/.agent-console` to project-root `.agents` subdirectories: `${user.dir}/.agents/ui-store` and `${user.dir}/.agents/agentscope-sessions`.
+Decision: local runtime state moved from `${user.home}/.quynj-claw` to project-root `.agents` subdirectories: `${user.dir}/.agents/ui-store` and `${user.dir}/.agents/agentscope-sessions`.
 
 Rationale:
 

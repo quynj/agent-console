@@ -1,4 +1,4 @@
-# Agent Console Handoff Guide
+# Quynj Claw Handoff Guide
 
 This repository implements a custom AgentScope Java session console with a Spring Boot backend and a Vue 3 frontend.
 
@@ -24,13 +24,13 @@ Core rules for future agents:
 
 Important local paths:
 
-- Backend source: `src/main/java/com/github/quynj/agentconsole`
+- Backend source: `src/main/java/com/github/quynj/quynjclaw`
 - Frontend source: `frontend/src`
 - Config: `src/main/resources/application.yml`
 - AgentScope state: `${user.dir}/.agents/agentscope-sessions`
 - UI JSON store: `${user.dir}/.agents/ui-store`
 - Project-local AgentScope skills: `${user.dir}/.agents/skills`
-- Agent built-in tools: `src/main/java/com/github/quynj/agentconsole/tool`
+- Agent built-in tools: `src/main/java/com/github/quynj/quynjclaw/tool`
 
 Validation commands used for this handoff:
 

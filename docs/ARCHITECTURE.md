@@ -2,7 +2,7 @@
 
 ## Backend Package Map
 
-Base package: `com.github.quynj.agentconsole`
+Base package: `com.github.quynj.quynjclaw`
 
 - `api`
   - `SessionController`: session CRUD and summary endpoint.
@@ -76,7 +76,7 @@ Keep this invariant: the only cross-call Agent state source is AgentScope `JsonS
 Configured in `src/main/resources/application.yml`:
 
 ```yaml
-agent-console:
+quynj-claw:
   base-dir: ${user.dir}/.agents
   ui-store-path: ${user.dir}/.agents/ui-store
   agentscope-session-store-path: ${user.dir}/.agents/agentscope-sessions
@@ -107,7 +107,7 @@ Project-local skills live under:
 
 ```text
 .agents/skills/
-  agent-console-agent/SKILL.md
+  quynj-claw-agent/SKILL.md
   conventional-commit/SKILL.md
   nano-memory/SKILL.md
   skills-creator/SKILL.md
@@ -118,7 +118,7 @@ Project-local skills live under:
 Built-in Java tools live under:
 
 ```text
-src/main/java/com/github/quynj/agentconsole/tool/
+src/main/java/com/github/quynj/quynjclaw/tool/
 ```
 
 Registered tool beans:
@@ -138,7 +138,7 @@ Additional AgentScope tools registered by `AgentFactory.createToolkit(...)`:
 
 ## Frontend Map
 
-- `frontend/src/views/AgentConsoleView.vue`: three-column shell.
+- `frontend/src/views/QuynjClawView.vue`: three-column shell.
 - `frontend/src/components/session`: session sidebar and items.
 - `frontend/src/components/chat`: chat feed, input, message cards, content block renderers.
 - `frontend/src/components/data-view`: Summary / Message / Trace tabs.

@@ -1,0 +1,87 @@
+package com.github.quynj.quynjclaw.store;
+
+import com.github.quynj.quynjclaw.common.JsonFileUtils;
+import com.github.quynj.quynjclaw.config.QuynjClawProperties;
+import com.github.quynj.quynjclaw.dto.ChatSessionDTO;
+import com.github.quynj.quynjclaw.dto.SessionSummaryDTO;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.annotation.PostConstruct;
+import org.springframework.stereotype.Repository;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+@Repository
+public class LocalSummaryStore {
+    private final QuynjClawProperties properties;
+    private final JsonFileUtils json;
+    private Path dir;
+
+    public LocalSummaryStore(QuynjClawProperties properties, ObjectMapper mapper) {
+        this.properties = properties;
+        this.json = new JsonFileUtils(mapper);
+    }
+
+    @PostConstruct
+    public void init() throws IOException {
+        dir = Path.of(properties.uiStorePath, "summaries");
+        Files.createDirectories(dir);
+    }
+
+    public synchronized SessionSummaryDTO get(String sessionId) {
+        return json.read(path(sessionId), SessionSummaryDTO.class, null);
+    }
+
+    public synchronized void initFromSession(ChatSessionDTO session) {
+        SessionSummaryDTO summary = new SessionSummaryDTO();
+        summary.sessionId = session.id;
+        summary.title = session.title;
+        summary.agentName = session.agentName;
+        summary.status = session.status;
+        summary.messageCount = session.messageCount;
+        summary.traceCount = session.traceCount;
+        summary.totalTokens = session.totalTokens;
+        summary.promptTokens = session.promptTokens;
+        summary.completionTokens = session.completionTokens;
+        summary.durationMs = session.durationMs;
+        summary.createdAt = session.createdAt;
+        summary.updatedAt = session.updatedAt;
+        update(summary);
+    }
+
+    public synchronized void update(SessionSummaryDTO summary) {
+        json.writeAtomic(path(summary.sessionId), summary);
+    }
+
+    public synchronized void updateAfterSession(ChatSessionDTO session) {
+        SessionSummaryDTO summary = get(session.id);
+        if (summary == null) {
+            initFromSession(session);
+            return;
+        }
+        summary.title = session.title;
+        summary.agentName = session.agentName;
+        summary.status = session.status;
+        summary.messageCount = session.messageCount;
+        summary.traceCount = session.traceCount;
+        summary.totalTokens = session.totalTokens;
+        summary.promptTokens = session.promptTokens;
+        summary.completionTokens = session.completionTokens;
+        summary.durationMs = session.durationMs;
+        summary.updatedAt = session.updatedAt;
+        update(summary);
+    }
+
+    public synchronized void delete(String sessionId) {
+        try {
+            Files.deleteIfExists(path(sessionId));
+        } catch (IOException e) {
+            throw new IllegalStateException("Failed to delete summary for " + sessionId, e);
+        }
+    }
+
+    private Path path(String sessionId) {
+        return dir.resolve(sessionId + ".json");
+    }
+}

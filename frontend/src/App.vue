@@ -1,7 +1,7 @@
 <template>
-  <AgentConsoleView />
+  <QuynjClawView />
 </template>
 
 <script setup lang="ts">
-import AgentConsoleView from './views/AgentConsoleView.vue'
+import QuynjClawView from './views/QuynjClawView.vue'
 </script>
